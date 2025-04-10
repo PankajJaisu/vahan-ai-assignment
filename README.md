@@ -34,7 +34,7 @@ The Research Summarizer API enables users to:
 
 ---
 ## Demo Link
-[Click here to try the live demo](https://drive.google.com/file/d/1lHaDiud_VHT4wkTsQXtz6-BT3PZYQDa6/view)
+[Demo Video Link](https://drive.google.com/file/d/1lHaDiud_VHT4wkTsQXtz6-BT3PZYQDa6/view)
 
 ## Core Features
 
