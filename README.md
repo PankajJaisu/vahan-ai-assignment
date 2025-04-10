@@ -6,6 +6,7 @@ The **Research Summarizer API** allows users to find, analyze, and summarize res
 
 ## Table of Contents
 - [Overview](#overview)
+- [Demo Link](#demo-link)
 - [Core Features](#core-features)
 - [Installation](#installation)
 - [Environment Variables](#environment-variables)
@@ -32,6 +33,8 @@ The Research Summarizer API enables users to:
 - Convert summaries into podcast-like audio using gTTS
 
 ---
+## Demo Link
+[Click here to try the live demo](https://drive.google.com/file/d/1lHaDiud_VHT4wkTsQXtz6-BT3PZYQDa6/view)
 
 ## Core Features
 
