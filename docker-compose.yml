@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  web:
+    container_name: josh-talks-assignment-latest
+    image: assignment:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./:/app
+    environment:
+      - DOCKER_ENV=true
+    env_file:
+      - .env
+    depends_on:
+      - db
+    restart: on-failure
+    command: ["gunicorn", "task_manager.wsgi:application", "--bind", "0.0.0.0:8000"]
+
+  db:
+    image: postgres
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
