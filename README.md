@@ -8,6 +8,7 @@ The **Research Summarizer API** allows users to find, analyze, and summarize res
 - [Overview](#overview)
 - [Core Features](#core-features)
 - [Installation](#installation)
+- [Environment Variables](#environment-variables)
 - [Tech Stack](#tech-stack)
 - [API Endpoints](#api-endpoints)
 - [Sample Requests & Responses](#sample-requests--responses)
@@ -17,7 +18,6 @@ The **Research Summarizer API** allows users to find, analyze, and summarize res
 - [Audio Generation](#audio-generation)
 - [Limitations & Future Improvements](#limitations--future-improvements)
 - [Postman Collection](#postman-collection)
-- [Environment Variables](#environment-variables)
 - [Sample Input & Output](#sample-input--output)
 
 ---
@@ -52,6 +52,23 @@ The Research Summarizer API enables users to:
 git clone https://github.com/PankajJaisu/vahan-ai-assignment.git
 cd vahan-ai-assignment
 ```
+
+
+## Environment Variables
+
+Create a `.env` file:
+```env
+SECRET_KEY=django-insecure-_dbg*!c42&*5o77n_gk3e$-zuz@y2r(l*74zc)t@yg=-z!qf#x
+DEBUG=True
+DB_NAME=defaultdb
+DB_USER=avnadmin
+DB_PASSWORD=AVNS_V8nvrLEHSi_lbazjxAj
+DB_HOST=pg-196ebf3b-vahan-ai.k.aivencloud.com
+DB_PORT=21683
+```
+---
+**Note:** The `.env` file has been intentionally included and pushed to the repository to facilitate easier evaluation of the assignment. It contains non-sensitive, sample environment variables specifically for demonstration and testing purposes.
+
 
 ### Run the Project with Docker
 ```bash
@@ -202,20 +219,6 @@ Import this collection to test endpoints quickly:
 
 ---
 
-## Environment Variables
-
-Create a `.env` file:
-```env
-SECRET_KEY=your-django-secret-key
-DEBUG=True
-DB_NAME=your_db_name
-DB_USER=your_user
-DB_PASSWORD=your_password
-DB_HOST=your_host
-DB_PORT=5432
-```
-
----
 
 ## Sample Input & Output
 
@@ -251,12 +254,16 @@ Key: `file`, Value: Select the downloaded sample PDF file
 **Output:**
 ```json
 {
-  "id": 1,
-  "title": "Attention Is All You Need",
-  "topic": "Artificial Intelligence",
-  "summary": "This paper proposes the Transformer model...",
-  "source_url": "https://arxiv.org/pdf/1706.03762.pdf",
-  "audio": "audios/abcd1234.mp3"
+    "id": 9,
+    "title": "1706.03762",
+    "doi": null,
+    "file": null,
+    "uploaded_at": "2025-04-10T10:40:20.186701Z",
+    "topic": "Artificial Intelligence",
+    "summary": " Google hereby grants permission to produce the tables and figures in this paper solely for use in journalistic or scholarly works . We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions . The Transformer achieves 28.4 BLEU on the WMT 2014 English-to-German translation task, improving over the existing best results, including that of the literature, by over 2 BLEu . We show that the model generalizes well to other tasks by applying it successfully to English constituency parsing both with large and limited training data .",
+    "audio": "/media/audios/9e31979c-0b39-429c-99ce-b40016845ccf.mp3",
+    "source_url": "https://arxiv.org/pdf/1706.03762.pdf",
+    "citation": null
 }
 ```
 
@@ -270,46 +277,35 @@ Key: `file`, Value: Select the downloaded sample PDF file
 **Output:**
 ```json
 {
-  "id": 2,
-  "title": "10.48550/arXiv.1706.03762",
-  "topic": "Artificial Intelligence",
-  "summary": "This paper introduces a novel architecture...",
-  "doi": "10.48550/arXiv.1706.03762",
-  "audio": "audios/xyz5678.mp3"
+    "id": 10,
+    "title": "[1706.03762] Attention Is All You Need",
+    "doi": "10.48550/arXiv.1706.03762",
+    "file": null,
+    "uploaded_at": "2025-04-10T10:42:14.975281Z",
+    "topic": "Artificial Intelligence",
+    "summary": " Google hereby grants permission to produce the tables and figures in this paper solely for use in journalistic or scholarly works . We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions . The Transformer achieves 28.4 BLEU on the WMT 2014 English-to-German translation task, improving over the existing best results, including that of the literature, by over 2 BLEu . We show that the model generalizes well to other tasks by applying it successfully to English constituency parsing both with large and limited training data .",
+    "audio": "/media/audios/13b55503-faf6-42ac-bd87-746b1cbea7f8.mp3",
+    "source_url": null,
+    "citation": null
 }
 ```
 
-### API: `/synthesize/?topic=Quantum Computing`
+### API: `/synthesize/?topic=quantumcomputing`
 **Output:**
 ```json
-{
-  "topic": "Quantum Computing",
-  "synthesized_summary": "Across various papers, the key advancements in quantum computing..."
-}
+[
+    {
+        "id": 11,
+        "title": "Evaluation of Decoherence for Quantum Computing Architectures: Qubit\n  System Subject to Time-Dependent Control",
+        "doi": null,
+        "file": null,
+        "uploaded_at": "2025-04-10T10:44:27.738901Z",
+        "topic": "Quantum Computing",
+        "summary": " We present an approach that allows quantifying decoherence processes in an open quantum system subject to external time-dependent control . Interactions with the environment are modeled by a standard bosonic heat bath . The approximations are found to produce consistent results at short and intermediate times . Applications are reported for two illustrative models: an exactly solvable adiabatic model, and a model of a rotating-wavewave wave function . The approach is found to be useful for computerizing gate functions such as the gate function of the rotating wave wave gate function and adiabilabilating gate function .",
+        "audio": "/media/audios/b56b734a-d164-4700-b698-7f8e5676b911.mp3",
+        "source_url": "http://arxiv.org/abs/cond-mat/0506286v2",
+        "citation": null
+    }
+]
 ```
-
-**Sample Input:**
-```json
-{
-  "url": "https://arxiv.org/pdf/1706.03762.pdf"
-}
-```
-
-**Sample Output:**
-```json
-{
-  "id": 1,
-  "title": "Attention Is All You Need",
-  "topic": "Artificial Intelligence",
-  "summary": "This paper proposes the Transformer model...",
-  "source_url": "https://arxiv.org/pdf/1706.03762.pdf",
-  "audio": "audios/abcd1234.mp3"
-}
-```
-
----
-
-## Author
-
-Made with ❤️ by Pankaj Jaiswal
 
