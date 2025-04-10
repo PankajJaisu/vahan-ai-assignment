@@ -155,7 +155,7 @@ class UploadPaperView(APIView):
         audio_path = os.path.join('media/audios/', audio_filename)
         audio_agent.generate_audio(summary, audio_path, topic)
 
-        # Try extracting metadata title from PDF
+        # extracting metadata title from PDF
         try:
             with fitz.open(temp_path) as doc:
                 title = doc.metadata.get("title") or file.name.replace('.pdf', '').replace('_', ' ').title()

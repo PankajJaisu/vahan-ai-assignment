@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   web:
-    container_name: josh-talks-assignment-latest
+    container_name: vahan_ai
     image: assignment:latest
     build:
       context: .
@@ -18,7 +18,7 @@ services:
     depends_on:
       - db
     restart: on-failure
-    command: ["gunicorn", "task_manager.wsgi:application", "--bind", "0.0.0.0:8000"]
+    command: ["gunicorn", "research_summarizer_api.wsgi:application", "--bind", "0.0.0.0:8000"]
 
   db:
     image: postgres

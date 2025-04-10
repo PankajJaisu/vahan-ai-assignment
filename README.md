@@ -49,8 +49,8 @@ The Research Summarizer API enables users to:
 
 ### Clone the Repository
 ```bash
-git clone https://github.com/your-username/research-summarizer-api.git
-cd research-summarizer-api
+git clone https://github.com/PankajJaisu/vahan-ai-assignment.git
+cd vahan-ai-assignment
 ```
 
 ### Run the Project with Docker
@@ -198,7 +198,7 @@ Agents communicate in a pipeline to process and enrich research content.
 ## Postman Collection
 
 Import this collection to test endpoints quickly:  
-🔗 [Postman Collection](https://documenter.getpostman.com/view/your_collection_id)
+🔗 [Postman Collection](https://documenter.getpostman.com/view/26432004/2sB2cXA2Rw)
 
 ---
 
@@ -218,6 +218,28 @@ DB_PORT=5432
 ---
 
 ## Sample Input & Output
+
+### API: `/upload/`  
+**Sample File:**  
+📎 [Download Sample PDF](https://drive.google.com/file/d/1zRskYQYUU2B5t9VJZjKsaZ2o6DIw-VPL/view?usp=sharing)
+
+**Input (form-data):**  
+Key: `file`, Value: Select the downloaded sample PDF file
+
+**Output:**  
+```json
+{
+    "id": 1,
+    "title": "Developmentofanai-Basedinterviewsystemforremotehiring",
+    "doi": null,
+    "file": "/media/papers/DEVELOPMENTOFANAI-BASEDINTERVIEWSYSTEMFORREMOTEHIRING_XbvCTPQ.pdf",
+    "uploaded_at": "2025-04-10T08:04:06.275915Z",
+    "topic": "Artificial Intelligence",
+    "summary": " Development of an AI-Based Interview System for Remote Hiring was published in the International Journal of Advanced Research in Engineering and Technology (IJARET) in March 2021, pp. 654-663 . The resulting AI interview system has been applied to enterprises with a reliability of 0.88 Pearson score . It turned out that the satisfaction with fairness and efficiency was as high as 85% in such aspects as  evaluations processes, job fitness, and organization fitness . As the applicable range of AI-based solutions is expanding to the general area of personnel management with its  time and cost efficiency, as well as reliability and fairness recognized .",
+    "audio": "/media/audios/16366598-51d7-4b83-8505-0761331a104a.mp3",
+    "source_url": null,
+    "citation": null
+}
 
 ### API: `/process-url/`
 **Input:**
